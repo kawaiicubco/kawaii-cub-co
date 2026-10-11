@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kawaii Cub Co. — Cute Coloring Books for Kids Ages 2–6</title>
+<meta name="description" content="41 kawaii coloring books for kids ages 2-6. Big bold lines, fun facts on every page. Starring Tsuki the moon cub.">
+<style>
+  :root{
+    --honey:#DF8E3E;
+    --cream:#FFEBC2;
+    --cream-bg:#FFF8EA;
+    --gold:#FFD75C;
+    --lavender:#D2B3F4;
+    --teal:#2B9491;
+    --red:#D52F30;
+    --pink:#F5A3B7;
+    --ink:#1A1A1A;
+    --gray:#6b6257;
+    --white:#ffffff;
+    --radius:22px;
+    --shadow:0 10px 30px rgba(26,26,26,.08);
+    --shadow-lg:0 18px 50px rgba(26,26,26,.14);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);line-height:1.6;background:var(--cream-bg);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+  section{padding:80px 0}
+  .eyebrow{
+    display:inline-block;font-size:12px;font-weight:800;letter-spacing:3px;
+    text-transform:uppercase;color:var(--honey);margin-bottom:14px;
+  }
+  .section-title{
+    font-size:clamp(28px,5vw,42px);font-weight:800;letter-spacing:-.5px;
+    line-height:1.15;margin-bottom:12px;
+  }
+  .section-sub{color:var(--gray);font-size:18px;max-width:640px}
+  .center{text-align:center}
+  .center .section-sub{margin:0 auto}
+
+  /* ---------- Nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,248,234,.92);backdrop-filter:blur(12px);
+    border-bottom:2px solid var(--cream);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:800;font-size:19px}
+  .brand img{height:44px;width:auto}
+  .nav-links{display:none;gap:26px}
+  @media(min-width:840px){.nav-links{display:flex}}
+  .nav-links a{color:var(--gray);text-decoration:none;font-weight:700;font-size:15px}
+  .nav-links a:hover{color:var(--ink)}
+  .btn{
+    display:inline-block;background:var(--red);color:#fff;border:none;cursor:pointer;
+    font-weight:800;font-size:16px;text-decoration:none;
+    padding:14px 32px;border-radius:999px;
+    box-shadow:0 6px 18px rgba(213,47,48,.35);
+    transition:transform .15s ease,box-shadow .15s ease;
+    white-space:nowrap;
+  }
+  .btn:hover{transform:translateY(-2px) rotate(-1deg);box-shadow:0 10px 26px rgba(213,47,48,.45)}
+  .btn.small{padding:10px 24px;font-size:14px}
+  .btn.teal{background:var(--teal);box-shadow:0 6px 18px rgba(43,148,145,.35)}
+  .btn.teal:hover{box-shadow:0 10px 26px rgba(43,148,145,.45)}
+  .btn.ghost{background:transparent;color:var(--ink);box-shadow:none;border:2px solid var(--ink)}
+  .btn.ghost:hover{box-shadow:none;background:var(--ink);color:#fff}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;overflow:hidden;
+    background:
+      radial-gradient(600px 300px at 12% 8%,rgba(255,215,92,.5),transparent 60%),
+      radial-gradient(700px 380px at 88% 90%,rgba(210,179,244,.45),transparent 60%),
+      linear-gradient(170deg,#FFF3D6 0%,var(--cream-bg) 70%);
+    padding:70px 0 90px;
+  }
+  .moon{
+    position:absolute;font-size:120px;opacity:.9;top:36px;right:6%;
+    filter:drop-shadow(0 6px 14px rgba(255,215,92,.6));
+    animation:float 6s ease-in-out infinite;
+  }
+  .star{position:absolute;color:var(--gold);font-size:26px;animation:twinkle 3s ease-in-out infinite}
+  @keyframes float{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-16px) rotate(4deg)}}
+  @keyframes twinkle{0%,100%{opacity:.35;transform:scale(.9)}50%{opacity:1;transform:scale(1.15)}}
+  .hero-grid{display:grid;gap:44px;align-items:center;position:relative}
+  @media(min-width:920px){.hero-grid{grid-template-columns:1.05fr .95fr}}
+  .hero h1{
+    font-size:clamp(38px,7vw,62px);font-weight:800;line-height:1.08;
+    letter-spacing:-1px;margin-bottom:18px;
+  }
+  .hero h1 .hl{
+    background:linear-gradient(120deg,var(--gold) 20%,var(--pink) 80%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    padding:0 4px;
+  }
+  .hero .sub{font-size:clamp(16px,3vw,20px);color:var(--gray);max-width:520px;margin-bottom:32px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:24px}
+  .hero-note{font-size:14px;color:var(--gray);font-weight:600}
+  .hero-art{text-align:center;position:relative}
+  .hero-art img{
+    max-width:min(380px,80%);height:auto;
+    filter:drop-shadow(0 24px 40px rgba(223,142,62,.35));
+    animation:float 7s ease-in-out infinite;
+  }
+  .hero-badge{
+    display:inline-block;background:#fff;border:2px solid var(--ink);border-radius:999px;
+    padding:8px 20px;font-weight:800;font-size:14px;margin-top:18px;
+    box-shadow:4px 4px 0 var(--ink);transform:rotate(-2deg);
+  }
+
+  /* ---------- Stats ---------- */
+  .stats{background:var(--ink);color:#fff;padding:44px 0}
+  .stats-row{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;text-align:center}
+  @media(min-width:760px){.stats-row{grid-template-columns:repeat(4,1fr)}}
+  .stat b{display:block;font-size:clamp(30px,5vw,44px);font-weight:800;color:var(--gold);letter-spacing:-1px}
+  .stat span{font-size:14px;font-weight:600;color:#cbbfa8;letter-spacing:1px;text-transform:uppercase}
+
+  /* ---------- Tsuki ---------- */
+  .tsuki{background:#fff}
+  .tsuki-grid{display:grid;gap:44px;align-items:center}
+  @media(min-width:920px){.tsuki-grid{grid-template-columns:.9fr 1.1fr}}
+  .tsuki-art{
+    background:linear-gradient(150deg,var(--lavender),#e9dcfb);
+    border-radius:32px;padding:40px;text-align:center;
+    border:3px solid var(--ink);box-shadow:8px 8px 0 var(--ink);
+  }
+  .tsuki-art img{max-width:240px;width:70%;height:auto}
+  .tsuki-copy h2{font-size:clamp(28px,5vw,40px);font-weight:800;margin-bottom:14px;letter-spacing:-.5px}
+  .tsuki-copy p{color:var(--gray);font-size:17px;margin-bottom:16px}
+  .tsuki-facts{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 28px}
+  .fact-chip{
+    background:var(--cream);border:2px solid var(--ink);border-radius:999px;
+    padding:8px 18px;font-weight:700;font-size:14px;
+  }
+
+  /* ---------- Library ---------- */
+  .series{margin-top:56px}
+  .series-head{display:flex;align-items:baseline;gap:14px;margin-bottom:20px;flex-wrap:wrap}
+  .series-head h3{font-size:24px;font-weight:800}
+  .series-head .count{
+    background:var(--ink);color:#fff;font-size:13px;font-weight:800;
+    padding:4px 14px;border-radius:999px;
+  }
+  .book-grid{display:grid;gap:14px;grid-template-columns:repeat(2,1fr)}
+  @media(min-width:640px){.book-grid{grid-template-columns:repeat(3,1fr)}}
+  @media(min-width:1000px){.book-grid{grid-template-columns:repeat(4,1fr)}}
+  .book{
+    background:#fff;border:2px solid #f0e6d2;border-radius:18px;padding:20px;
+    transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease;
+    display:flex;flex-direction:column;gap:8px;
+  }
+  .book:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--honey)}
+  .book .series-tag{font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal)}
+  .book h4{font-size:16px;font-weight:800;line-height:1.3}
+  .book .meta{font-size:13px;color:var(--gray);font-weight:600}
+  .book .row{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:8px;padding-top:8px}
+  .book .price{font-weight:800;font-size:17px}
+  .pill{
+    font-size:12px;font-weight:800;padding:6px 14px;border-radius:999px;
+    text-decoration:none;white-space:nowrap;
+  }
+  .pill.buy{background:var(--red);color:#fff;box-shadow:0 3px 10px rgba(213,47,48,.3)}
+  .pill.buy:hover{transform:scale(1.05)}
+  .pill.soon{background:var(--cream);color:#a08c5b;border:2px dashed #d9c48f;cursor:default}
+  .live-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#2fae5f;margin-right:6px;animation:twinkle 2s infinite}
+
+  /* ---------- Bundles ---------- */
+  .bundles{background:linear-gradient(160deg,#2B9491,#1f6f6d);color:#fff}
+  .bundles .eyebrow{color:var(--gold)}
+  .bundles .section-sub{color:#d7efee}
+  .bundle-grid{display:grid;gap:18px;margin-top:40px}
+  @media(min-width:760px){.bundle-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:1080px){.bundle-grid{grid-template-columns:repeat(3,1fr)}}
+  .bundle-card{
+    background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.25);
+    border-radius:var(--radius);padding:30px 26px;backdrop-filter:blur(4px);
+    display:flex;flex-direction:column;gap:10px;
+  }
+  .bundle-card.featured{background:#fff;color:var(--ink);border-color:#fff;transform:scale(1.02)}
+  .bundle-card h4{font-size:20px;font-weight:800}
+  .bundle-card .desc{font-size:15px;opacity:.85;flex:1}
+  .bundle-card.featured .desc{opacity:1;color:var(--gray)}
+  .bundle-card .bprice{font-size:34px;font-weight:800;letter-spacing:-1px}
+  .bundle-card .bprice small{font-size:15px;font-weight:600;opacity:.7}
+  .bundle-card .btn{align-self:flex-start}
+  .bundle-card.featured .btn{background:var(--red)}
+  .bundle-soon{font-size:13px;font-weight:700;opacity:.75}
+
+  /* ---------- How ---------- */
+  .steps{display:grid;gap:18px;margin-top:40px}
+  @media(min-width:760px){.steps{grid-template-columns:repeat(3,1fr)}}
+  .step{
+    background:#fff;border:3px solid var(--ink);border-radius:var(--radius);
+    padding:32px 26px;text-align:center;box-shadow:6px 6px 0 var(--ink);
+  }
+  .step .num{
+    width:54px;height:54px;border-radius:50%;margin:0 auto 16px;
+    background:var(--gold);border:3px solid var(--ink);
+    font-size:24px;font-weight:800;display:flex;align-items:center;justify-content:center;
+  }
+  .step h4{font-size:18px;font-weight:800;margin-bottom:8px}
+  .step p{color:var(--gray);font-size:15px}
+  .how-note{
+    margin-top:30px;text-align:center;color:var(--gray);font-size:15px;font-weight:600;
+    background:#fff;border:2px dashed #d9c48f;border-radius:16px;padding:18px 24px;max-width:640px;margin-left:auto;margin-right:auto;
+  }
+
+  /* ---------- CTA ---------- */
+  .cta{
+    background:
+      radial-gradient(600px 300px at 50% 0%,rgba(255,215,92,.35),transparent 65%),
+      linear-gradient(165deg,#1A1A1A,#2b2118);
+    color:#fff;text-align:center;
+  }
+  .cta h2{font-size:clamp(28px,5vw,44px);font-weight:800;margin-bottom:14px;letter-spacing:-.5px}
+  .cta h2 .hl{color:var(--gold)}
+  .cta p{color:#cbbfa8;font-size:18px;max-width:560px;margin:0 auto 30px}
+
+  footer{background:#141414;color:#8f867a;text-align:center;padding:36px 20px;font-size:14px}
+  footer .fbrand{color:#fff;font-weight:800;font-size:16px;margin-bottom:8px}
+  footer a{color:var(--gold);text-decoration:none;font-weight:700}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><img src="images/logo-horizontal-color.png" alt="Kawaii Cub Co. logo"> </a>
+    <div class="nav-links">
+      <a href="#tsuki">Tsuki</a>
+      <a href="#library">Library</a>
+      <a href="#bundles">Bundles</a>
+      <a href="#how">How it works</a>
+    </div>
+    <a class="btn small" href="https://kawaiicubco.gumroad.com">Shop books</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="moon">🌙</div>
+  <span class="star" style="top:18%;left:8%">✦</span>
+  <span class="star" style="top:64%;left:4%;animation-delay:1s">✦</span>
+  <span class="star" style="top:30%;right:22%;animation-delay:2s">✦</span>
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Kawaii Cub Co. · Est. with love</p>
+      <h1>Cute coloring books your little one will <span class="hl">adore.</span></h1>
+      <p class="sub">41 kawaii coloring books for ages 2–6 — big bold lines, simple shapes, and a fun fact on every page. Starring Tsuki the moon cub.</p>
+      <div class="hero-cta">
+        <a class="btn" href="https://kawaiicubco.gumroad.com">Shop the books</a>
+        <a class="btn ghost" href="#library">Browse the library</a>
+      </div>
+      <p class="hero-note">✏️ Instant download · 🖨️ Print at home · 🎁 The perfect gift</p>
+    </div>
+    <div class="hero-art">
+      <img src="images/chibi-hero.png" alt="Tsuki the moon cub holding a big red crayon">
+      <br><span class="hero-badge">🌙 Meet Tsuki!</span>
+    </div>
+  </div>
+</header>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="wrap stats-row">
+    <div class="stat"><b>41</b><span>Coloring books</span></div>
+    <div class="stat"><b>2–6</b><span>Ages</span></div>
+    <div class="stat"><b>20</b><span>Pages per book</span></div>
+    <div class="stat"><b>5</b><span>Value bundles</span></div>
+  </div>
+</div>
+
+<!-- TSUKI -->
+<section class="tsuki" id="tsuki">
+  <div class="wrap tsuki-grid">
+    <div class="tsuki-art">
+      <img src="images/chibi-hero.png" alt="Tsuki the moon cub">
+    </div>
+    <div class="tsuki-copy">
+      <p class="eyebrow">Your coloring buddy</p>
+      <h2>Meet Tsuki — the moon cub 🌙</h2>
+      <p>Tsuki is the heart of Kawaii Cub Co. — a magical little cub with a golden crescent moon on his forehead, tiny starry wings, and an oversized red crayon that's always ready for the next adventure.</p>
+      <p>He stars in his very own coloring book and pops up throughout the whole library to cheer your little artist on.</p>
+      <div class="tsuki-facts">
+        <span class="fact-chip">🌙 Moon-marked</span>
+        <span class="fact-chip">⭐ Starry wings</span>
+        <span class="fact-chip">🖍️ Big red crayon</span>
+        <span class="fact-chip">💛 Loves every color</span>
+      </div>
+      <a class="btn teal" href="https://kawaiicubco.gumroad.com">Get Tsuki's book — $9.99</a>
+    </div>
+  </div>
+</section>
+
+<!-- LIBRARY -->
+<section id="library">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow">The collection</p>
+      <h2 class="section-title">Browse the library 📚</h2>
+      <p class="section-sub">Every book: 20 pages, big bold lines, a read-to-me fact on each page, and a write-your-name line. $9.99 each.</p>
+    </div>
+
+    <div class="series">
+      <div class="series-head"><h3>🌙 Mascot &amp; New</h3><span class="count">2 books</span></div>
+      <div class="book-grid">
+        <div class="book"><span class="series-tag">Mascot</span><h4>Kawaii Tsuki Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><a class="pill buy" href="https://kawaiicubco.gumroad.com"><span class="live-dot"></span>Buy now</a></div></div>
+        <div class="book"><span class="series-tag">New</span><h4>Kawaii Axolotl Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><span class="pill soon">Coming soon</span></div></div>
+      </div>
+    </div>
+
+    <div class="series">
+      <div class="series-head"><h3>🐾 Animals by Type</h3><span class="count">11 books</span></div>
+      <div class="book-grid">
+        <div class="book"><span class="series-tag">Animals</span><h4>Kawaii Dogs Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><a class="pill buy" href="https://kawaiicubco.gumroad.com"><span class="live-dot"></span>Buy now</a></div></div>
+        <div class="book"><span class="series-tag">Animals</span><h4>Kawaii Cats Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><a class="pill buy" href="https://kawaiicubco.gumroad.com"><span class="live-dot"></span>Buy now</a></div></div>
+        <div class="book"><span class="series-tag">Animals</span><h4>Kawaii Birds Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><span class="pill soon">Coming soon</span></div></div>
+        <div class="book"><span class="series-tag">Animals</span><h4>Kawaii Sea Creatures Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><span class="pill soon">Coming soon</span></div></div>
+        <div class="book"><span class="series-tag">Animals</span><h4>Kawaii Reptiles &amp; Amphibians Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><span class="pill soon">Coming soon</span></div></div>
+        <div class="book"><span class="series-tag">Animals</span><h4>Kawaii Dinosaurs Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><span class="pill soon">Coming soon</span></div></div>
+        <div class="book"><span class="series-tag">Animals</span><h4>Kawaii Horses &amp; Ponies Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><span class="pill soon">Coming soon</span></div></div>
+        <div class="book"><span class="series-tag">Animals</span><h4>Kawaii Farm Animals Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><span class="pill soon">Coming soon</span></div></div>
+        <div class="book"><span class="series-tag">Animals</span><h4>Kawaii Bugs &amp; Insects Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><span class="pill soon">Coming soon</span></div></div>
+        <div class="book"><span class="series-tag">Animals</span><h4>Kawaii Baby Animals Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><span class="pill soon">Coming soon</span></div></div>
+        <div class="book"><span class="series-tag">Animals</span><h4>Kawaii Pet Pals Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><span class="pill soon">Coming soon</span></div></div>
+      </div>
+    </div>
+
+    <div class="series">
+      <div class="series-head"><h3>🌍 Continental Animals</h3><span class="count">8 books</span></div>
+      <div class="book-grid">
+        <div class="book"><span class="series-tag">Continents</span><h4>African Safari Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><a class="pill buy" href="https://kawaiicubco.gumroad.com"><span class="live-dot"></span>Buy now</a></div></div>
+        <div class="book"><span class="series-tag">Continents</span><h4>Central American Animals Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><span class="pill soon">Coming soon</span></div></div>
+        <div class="book"><span class="series-tag">Continents</span><h4>North American Animals Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><span class="pill soon">Coming soon</span></div></div>
+        <div class="book"><span class="series-tag">Continents</span><h4>South American Animals Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><span class="pill soon">Coming soon</span></div></div>
+        <div class="book"><span class="series-tag">Continents</span><h4>Asian Animals Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><span class="pill soon">Coming soon</span></div></div>
+        <div class="book"><span class="series-tag">Continents</span><h4>Australian Animals Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><span class="pill soon">Coming soon</span></div></div>
+        <div class="book"><span class="series-tag">Continents</span><h4>European Animals Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><span class="pill soon">Coming soon</span></div></div>
+        <div class="book"><span class="series-tag">Continents</span><h4>Arctic &amp; Antarctic Animals Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><span class="pill soon">Coming soon</span></div></div>
+      </div>
+    </div>
+
+    <div class="series">
+      <div class="series-head"><h3>🚗 Kawaii Vehicles</h3><span class="count">8 books</span></div>
+      <div class="book-grid">
+        <div class="book"><span class="series-tag">Vehicles</span><h4>Kawaii Cars Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><span class="pill soon">Coming soon</span></div></div>
+        <div class="book"><span class="series-tag">Vehicles</span><h4>Kawaii Trucks Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><span class="pill soon">Coming soon</span></div></div>
+        <div class="book"><span class="series-tag">Vehicles</span><h4>Kawaii Aircraft Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><span class="pill soon">Coming soon</span></div></div>
+        <div class="book"><span class="series-tag">Vehicles</span><h4>Kawaii Watercraft Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><span class="pill soon">Coming soon</span></div></div>
+        <div class="book"><span class="series-tag">Vehicles</span><h4>Kawaii Spacecraft Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><span class="pill soon">Coming soon</span></div></div>
+        <div class="book"><span class="series-tag">Vehicles</span><h4>Kawaii Construction Vehicles Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><span class="pill soon">Coming soon</span></div></div>
+        <div class="book"><span class="series-tag">Vehicles</span><h4>Kawaii Emergency Vehicles Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><span class="pill soon">Coming soon</span></div></div>
+        <div class="book"><span class="series-tag">Vehicles</span><h4>Kawaii Trains Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><span class="pill soon">Coming soon</span></div></div>
+      </div>
+    </div>
+
+    <div class="series">
+      <div class="series-head"><h3>🎄 Holidays</h3><span class="count">8 books</span></div>
+      <div class="book-grid">
+        <div class="book"><span class="series-tag">Holidays</span><h4>Kawaii Christmas Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><a class="pill buy" href="https://kawaiicubco.gumroad.com"><span class="live-dot"></span>Buy now</a></div></div>
+        <div class="book"><span class="series-tag">Holidays</span><h4>Kawaii Halloween Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><a class="pill buy" href="https://kawaiicubco.gumroad.com"><span class="live-dot"></span>Buy now</a></div></div>
+        <div class="book"><span class="series-tag">Holidays</span><h4>Kawaii Easter Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><a class="pill buy" href="https://kawaiicubco.gumroad.com"><span class="live-dot"></span>Buy now</a></div></div>
+        <div class="book"><span class="series-tag">Holidays</span><h4>Kawaii Thanksgiving &amp; Fall Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><a class="pill buy" href="https://kawaiicubco.gumroad.com"><span class="live-dot"></span>Buy now</a></div></div>
+        <div class="book"><span class="series-tag">Holidays</span><h4>Kawaii Valentine's Day Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><a class="pill buy" href="https://kawaiicubco.gumroad.com"><span class="live-dot"></span>Buy now</a></div></div>
+        <div class="book"><span class="series-tag">Holidays</span><h4>Kawaii St. Patrick's Day Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><span class="pill soon">Coming soon</span></div></div>
+        <div class="book"><span class="series-tag">Holidays</span><h4>Kawaii 4th of July Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><span class="pill soon">Coming soon</span></div></div>
+        <div class="book"><span class="series-tag">Holidays</span><h4>Kawaii Winter Fun Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><span class="pill soon">Coming soon</span></div></div>
+      </div>
+    </div>
+
+    <div class="series">
+      <div class="series-head"><h3>⭐ Special Editions</h3><span class="count">3 books</span></div>
+      <div class="book-grid">
+        <div class="book"><span class="series-tag">Special</span><h4>Kawaii Community Helpers Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><span class="pill soon">Coming soon</span></div></div>
+        <div class="book"><span class="series-tag">Special</span><h4>Learn to Draw: Kawaii Dogs</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><span class="pill soon">Coming soon</span></div></div>
+        <div class="book"><span class="series-tag">Special</span><h4>Kawaii Kids Around the World Coloring Book</h4><p class="meta">20 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><span class="pill soon">Coming soon</span></div></div>
+      </div>
+    </div>
+
+    <div class="series">
+      <div class="series-head"><h3>🎌 Anime</h3><span class="count">1 book</span></div>
+      <div class="book-grid">
+        <div class="book"><span class="series-tag">Anime</span><h4>Anime Animals Coloring Book</h4><p class="meta">50 pages · Ages 2–6</p><div class="row"><span class="price">$9.99</span><span class="pill soon">Coming soon</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUNDLES -->
+<section class="bundles" id="bundles">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow">Save more</p>
+      <h2 class="section-title" style="color:#fff">Curated bundles 🎁</h2>
+      <p class="section-sub">Hand-picked collections at a sweet discount. More books, less hunting.</p>
+    </div>
+    <div class="bundle-grid">
+      <div class="bundle-card featured">
+        <h4>🐾 Pets Bundle</h4>
+        <p class="desc">Dogs, Cats, Pet Pals &amp; Baby Animals — 80 pages of furry friends.</p>
+        <p class="bprice">$19.99</p>
+        <a class="btn small" href="https://kawaiicubco.gumroad.com">Buy now</a>
+      </div>
+      <div class="bundle-card">
+        <h4>🌍 Continental Collection</h4>
+        <p class="desc">All 8 continental animal books — a world tour of cute critters.</p>
+        <p class="bprice">$29.99</p>
+        <p class="bundle-soon">Coming soon to the shop</p>
+      </div>
+      <div class="bundle-card">
+        <h4>🚗 Vehicles Collection</h4>
+        <p class="desc">All 8 vehicle books — cars, trucks, planes, trains &amp; more.</p>
+        <p class="bprice">$29.99</p>
+        <p class="bundle-soon">Coming soon to the shop</p>
+      </div>
+      <div class="bundle-card">
+        <h4>🎄 Holiday Bundle</h4>
+        <p class="desc">Every holiday book — Christmas through 4th of July.</p>
+        <p class="bprice">$19.99</p>
+        <p class="bundle-soon">Coming soon to the shop</p>
+      </div>
+      <div class="bundle-card">
+        <h4>📚 Complete Library</h4>
+        <p class="desc">The whole collection — every book we've ever made, in one giant bundle.</p>
+        <p class="bprice">$79.99</p>
+        <p class="bundle-soon">Coming soon to the shop</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section id="how">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow">Easy as 1-2-3</p>
+      <h2 class="section-title">How it works</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <h4>Pick your books</h4>
+        <p>Choose individual books or grab a bundle — all instant downloads.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h4>Download &amp; print</h4>
+        <p>Print at home or your local print shop. Print each page as many times as you like.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h4>Color &amp; learn</h4>
+        <p>Big bold lines for little hands, plus a fun fact to read together on every page.</p>
+      </div>
+    </div>
+    <p class="how-note">📖 Prefer paperbacks? Our books are also coming to Amazon — check back soon!</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap">
+    <h2>Ready to add some <span class="hl">color?</span></h2>
+    <p>Join the families already coloring with Tsuki and friends. New books drop regularly.</p>
+    <a class="btn" href="https://kawaiicubco.gumroad.com">Shop the collection</a>
+  </div>
+</section>
+
+<footer>
+  <p class="fbrand">Kawaii Cub Co. 🌙</p>
+  <p>© 2026 Kawaii Cub Co. · By L. D. Holloway · All rights reserved.</p>
+  <p style="margin-top:8px">Shop: <a href="https://kawaiicubco.gumroad.com">kawaiicubco.gumroad.com</a></p>
+</footer>
+
+</body>
+</html>
