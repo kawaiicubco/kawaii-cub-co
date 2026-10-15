@@ -1,0 +1,19 @@
+name: Rename audio file
+
+on:
+  workflow_dispatch:
+
+jobs:
+  rename:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rename narration file to tsuki.mp3
+        run: |
+          git config user.name "ldholloway429-blip"
+          git config user.email "ldholloway429-blip@users.noreply.github.com"
+          git mv audio/tsuki-narration.mp3 audio/tsuki.mp3
+          git commit -m "Rename tsuki-narration.mp3 to tsuki.mp3"
+          git push
